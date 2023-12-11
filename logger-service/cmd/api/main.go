@@ -44,8 +44,8 @@ func main() {
 	app := Config{
 		Models: data.New(client),
 	}
-
-	go app.serve()
+	log.Println("Starting service on port ", webPort)
+	app.serve()
 
 }
 
@@ -71,5 +71,6 @@ func connectToMongo() (*mongo.Client, error) {
 	if err != nil {
 		log.Println("Error connecting: ", err)
 	}
+	log.Println("Connected to Mongo!")
 	return c, nil
 }
